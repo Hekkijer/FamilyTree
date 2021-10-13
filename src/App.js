@@ -1,157 +1,149 @@
-import Person from './Person';
-
-// const peopleObject = {
-//         id: 1,
-//         name: "Albert",
-//         hasChild: true,
-//         hasManyChildren: false,
-//         hasParent: false,
-//         child: {
-//             id: 2,
-//             name: 'Tom',
-//             hasChild: true,
-//             hasManyChildren: false,
-//             hasParent: true,
-//             child: {
-//                 id: 3,
-//                 name: 'Tom',
-//                 hasChild: false,
-//                 hasParent: true
-//             }
-//         }
-// }
+import Branch from './Branch';
 
 const peopleObject = {
-    id: 1,
     name: "Albert",
-    hasChild: true,
-    hasManyChildren: true,
+    hasChildren: true,
+    hasParent: false,
     children: [
         {
-            id: 2,
             name: "Tomash",
-            hasChild: true,
-            hasManyChildren: false,
-            hasParent: true,
-            child: {
-                name: "Papio",
-                hasChild: false,
-                hasParent: true
-            }
-        },
-        {
-            id: 3,
-            name: "James",
-            hasChild: true,
-            hasManyChildren: true,
+            hasChildren: true,
             hasParent: true,
             children: [
                 {
-                    name: "Vergilio",
-                    hasChild: false,
+                    name: "Sergey",
+                    hasChildren: false,
+                    hasParent: true, 
+                },
+                {
+                    name: "Martin",
+                    hasChildren: true,
+                    hasParent: true,
+                    children: [
+                        {
+                            name: "Michael",
+                            hasChildren: false,
+                            hasParent: true, 
+                        },
+                        {
+                            name: "George",
+                            hasChildren: false,
+                            hasParent: true, 
+                        },
+                        {
+                            name: "Steve",
+                            hasChildren: false,
+                            hasParent: true, 
+                        },
+                    ]
+                },
+                {
+                    name: "Carl",
+                    hasChildren: false,
                     hasParent: true,
                 },
                 {
-                    name: "Huan",
-                    hasChild: false,
-                    hasParent: true,
-                },
-                {
-                    name: "Vasilissa",
-                    hasChild: false,
+                    name: "Oskar",
+                    hasChildren: false,
                     hasParent: true,
                 }
             ]
         },
         {
-            id: 4,
+            name: "James",
+            hasChildren: true,
+            hasParent: true,
+            children: [
+                {
+                    name: "Vergilio",
+                    hasChildren: false,
+                    hasParent: true,
+                },
+                {
+                    name: "Huan",
+                    hasChildren: false,
+                    hasParent: true,
+                },
+                {
+                    name: "Vasilissa",
+                    hasChildren: false,
+                    hasParent: true,
+                }
+            ]
+        },
+        {
+            name: "Peter",
+            hasChildren: true,
+            hasParent: true,
+            children: [
+                {
+                    name: "Avreli",
+                    hasChildren: true,
+                    hasParent: true,
+                    children: [
+                        {
+                            name: "Frank",
+                            hasChildren: true,
+                            hasParent: true,
+                            children: [
+                                {
+                                    name: "Lena",
+                                    hasChildren: false,
+                                    hasParent: true,
+                                },
+                                {
+                                    name: "Mary",
+                                    hasChildren: false,
+                                    hasParent: true,
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             name: "Anna",
-            hasChild: false,
-            hasParent: true
+            hasChildren: true,
+            hasParent: true,
+            children: [
+                {
+                    name: "Sandy",
+                    hasChildren: false,
+                    hasParent: true,
+                }
+            ]
+        },
+        {
+            name: "Konstantin",
+            hasChildren: true,
+            hasParent: true,
+            children: [
+                {
+                    name: "Emma",
+                    hasChildren: false,
+                    hasParent: true, 
+                },
+                {
+                    name: "Valentina",
+                    hasChildren: false,
+                    hasParent: true, 
+                },
+                {
+                    name: "Sofiya",
+                    hasChildren: false,
+                    hasParent: true, 
+                },
+            ] 
         }
     ]
 }
 
 
-
-
-
 function App() {
 
-    let peopleArray = [];
-
-    // Convert peopleObject to peopleArray & render
-    function peopleObjectToPeopleArray(peopleObject) {
-
-        // If array
-        if (Array.isArray(peopleObject)) {
-
-            // Clone array of objects
-            let array = [];
-
-            for (let i = 0; i < peopleObject.length; i++) {
-                let person =  {}
-                
-                for (let key in peopleObject[i]) {
-                    if (key !== 'child' && key !== 'children') {
-                        person[key] = peopleObject[i][key]
-                    }
-                }
-                array.push(person)
-            }
-
-            peopleArray.push(array)
-
-
-            // Cant start function again before define their children into one generation
-            for (let i = 0; i < peopleObject.length; i++) {
-                console.log("hey")
-                if (peopleObject[i].hasChild) {
-                    console.log("hey2")
-                    if (peopleObject[i].hasManyChildren) {
-                        console.log("hey3")
-                        peopleObjectToPeopleArray(peopleObject[i].children)
-                    }
-        
-                    peopleObjectToPeopleArray(peopleObject[i].child)
-                }
-            }
-        } 
-
-        // If object
-        else if (typeof(peopleObject) === 'object'){
-
-            // Clone object 
-            let person = {};
-
-            for (let key in peopleObject) {
-                if (key !== 'child' && key !== 'children') {
-                    person[key] = peopleObject[key];
-                }
-            }
-    
-            peopleArray.push(person)
-
-            if (peopleObject.hasChild) {
-                if (peopleObject.hasManyChildren) {
-                    peopleObjectToPeopleArray(peopleObject.children)
-                }
-    
-                peopleObjectToPeopleArray(peopleObject.child)
-            }
-        }
-    }
-
-    peopleObjectToPeopleArray(peopleObject)
-
-    console.log(peopleArray)
-
     return (
-        <div className="branch-container">
-            {peopleArray.map((person) => (
-                <Person person={person} key={person.id}/>
-            ))}
-        </div>
+        <Branch branch={peopleObject}/>
     );
 }
 

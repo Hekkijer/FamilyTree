@@ -10,16 +10,24 @@ h1, h2, h3, h4, h5, h6, p {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
 
 
-.branch-container {
-    padding: 250px 0;
+
+
+/* BRANCH */
+.branch-outer {
+    padding-top: 300px;
+    display: flex;
+    justify-content: center;
 }
 
-/* PERSON */
-.generation-container {
+.banch-inner {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 900px;
+    flex-direction: column;
+}
+
+
+/* PERSON */
+.person-container:first-child {
+    justify-content: flex-end;
 }
 
 .person-container {
@@ -28,23 +36,8 @@ h1, h2, h3, h4, h5, h6, p {
     height: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-}
-
-.person-container:first-child:not(.has-parent) {
-    justify-content: flex-end;
-}
-
-/* .person-container.has-child {
-    padding-top: 100px;
-}
-
-.person-container.has-parent {
-    padding-bottom: 100px;
-} */
-
-.person-container.has-child.has-parent {
-    padding: 0;
+    justify-content: center;
+    /* padding-top: 400px; */
 }
 
 .person {
@@ -108,32 +101,105 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /* Lines */
-
-.horizontal-line {
+.vertical-line {
     width: 10px;
     height: 300px;
-    background-color: #000;
+    background-color: black;
 }
 
-.horizontal-line.up {
+.vertical-line.has-parent {
     height: 400px;
+    background-color: transparent;
 }
 
-.vertical-line {
+.horizontal-line {
     height: 10px;
     background-color: #000;
     margin: 0 auto;
+    width: 70%;
 }
 
-
-/* Sibling */
-
-.siblings-generation-inner {
+/* NODE */
+.node-parent {
     display: flex;
-    gap: 100px;
-    height: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    height: 900px;
 }
 
-.siblings-generation-outer{
-    height: 100%;
+.node-children {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 900px;
 }
+
+.node-child {
+    /* margin: 0 40px; */
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+    position: relative;
+}
+
+.node-child.sibling:not(:first-child):not(:last-child)::after {
+    position: absolute;
+    /* background-color: black; */
+    content: "";
+    height: 410px;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    border-top: 10px solid #000;
+}
+
+.node-child:not(:first-child):not(:last-child)::before {
+    position: absolute;
+    content: "";
+    height: 410px;
+    top: -10px;
+    width: 50%;
+    border-left: 10.5px solid #000;
+    border-top: 10px solid #000;
+    right: -5.4px;
+}
+
+.node-child:not(.node-child.sibling)::before {
+    position: absolute;
+    content: "";
+    height: 410px;
+    top: -10px;
+    width: 50%;
+    border-left: 10px solid #000;
+    right: -5px;
+}
+
+.node-child.sibling:first-child::before {
+    position: absolute;
+    content: "";
+    height: 410px;
+    top: -10px;
+    width: 49.6%;
+    border-left: 10px solid #000;
+    border-top: 10px solid #000;
+    right: 0;
+    border-top-left-radius: 30px;
+}
+
+
+.node-child.sibling:last-child::before {
+    position: absolute;
+    content: "";
+    border-right: 10px solid #000;
+    border-top: 10px solid #000;
+    height: 410px;
+    top: -10px;
+    width: 49.6%;
+    left: 0;
+    border-top-right-radius: 30px;
+}
+
+
+
+
+
