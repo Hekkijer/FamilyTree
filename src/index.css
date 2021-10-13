@@ -1,13 +1,139 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+
+.branch-container {
+    padding: 250px 0;
+}
+
+/* PERSON */
+.generation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900px;
+}
+
+.person-container {
+    display: flex;
+    width: 300px;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.person-container:first-child:not(.has-parent) {
+    justify-content: flex-end;
+}
+
+/* .person-container.has-child {
+    padding-top: 100px;
+}
+
+.person-container.has-parent {
+    padding-bottom: 100px;
+} */
+
+.person-container.has-child.has-parent {
+    padding: 0;
+}
+
+.person {
+    transition: .4s;
+    width: 240px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 3px  rgba(0,0,0,.15);
+    outline: 5px solid transparent;
+    outline-offset: 6px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.person:hover {
+    width: 260px;
+    height: 220px;
+    transition: .4s;
+    outline-color: rgb(16, 172, 81);
+}
+
+.person-icon {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 200px;
+    left: 20px;
+    bottom: 100px;
+    border-radius: 50px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px 3px  rgba(0,0,0,.15);
+    outline: 5px solid transparent;
+    outline-offset: 4px;
+    transition: .4s;
+    background-image: url('father.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.person:hover .person-icon {
+    width: 220px;
+    height: 220px;
+    transition: .4s;
+    outline-color: rgb(16, 172, 81);
+}
+
+.person-name-container {
+    text-align: center;
+    padding: 30px 0;
+    width: 100%;
+    height: 40px;
+}
+
+.person-name {
+    color: grey;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+/* Lines */
+
+.horizontal-line {
+    width: 10px;
+    height: 300px;
+    background-color: #000;
+}
+
+.horizontal-line.up {
+    height: 400px;
+}
+
+.vertical-line {
+    height: 10px;
+    background-color: #000;
+    margin: 0 auto;
+}
+
+
+/* Sibling */
+
+.siblings-generation-inner {
+    display: flex;
+    gap: 100px;
+    height: 100%;
+}
+
+.siblings-generation-outer{
+    height: 100%;
 }
