@@ -116,8 +116,15 @@ const peopleObject = {
                             children: [
                                 {
                                     name: "Lena",
-                                    hasChildren: false,
+                                    hasChildren: true,
                                     hasParent: true,
+                                    children: [
+                                        {
+                                            name: "Kenny",
+                                            hasChildren: false,
+                                            hasParent: true,
+                                        }
+                                    ]
                                 },
                                 {
                                     name: "Mary",

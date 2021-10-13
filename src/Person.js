@@ -31,7 +31,7 @@ function Person(props) {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div>                  
                     <div className="person-container">
                         <div className="person">
                             <div className="person-icon"></div>
@@ -41,6 +41,9 @@ function Person(props) {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    <div className="person-container">
+                        
                     </div>
                 </div>
                 {person.hasChildren && <div className="vertical-line"></div> }
