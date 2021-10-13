@@ -4,11 +4,19 @@ const peopleObject = {
     name: "Albert",
     hasChildren: true,
     hasParent: false,
+    hasPartner: true,
+    partner: {
+        name: "Alice",
+    },
     children: [
         {
             name: "Tomash",
             hasChildren: true,
             hasParent: true,
+            hasPartner: true,
+            partner: {
+                name: "July",
+            },
             children: [
                 {
                     name: "Sergey",
@@ -19,6 +27,10 @@ const peopleObject = {
                     name: "Martin",
                     hasChildren: true,
                     hasParent: true,
+                    hasPartner: true,
+                    partner: {
+                        name: "Linn",
+                    },
                     children: [
                         {
                             name: "Michael",
@@ -53,6 +65,10 @@ const peopleObject = {
             name: "James",
             hasChildren: true,
             hasParent: true,
+            hasPartner: true,
+            partner: {
+                name: "Mandy",
+            },
             children: [
                 {
                     name: "Vergilio",
@@ -75,16 +91,28 @@ const peopleObject = {
             name: "Peter",
             hasChildren: true,
             hasParent: true,
+            hasPartner: true,
+            partner: {
+                name: "Mary",
+            },
             children: [
                 {
                     name: "Avreli",
                     hasChildren: true,
                     hasParent: true,
+                    hasPartner: true,
+                    partner: {
+                        name: "Sofiya",
+                    },
                     children: [
                         {
                             name: "Frank",
                             hasChildren: true,
                             hasParent: true,
+                            hasPartner: true,
+                            partner: {
+                                name: "Ann",
+                            },
                             children: [
                                 {
                                     name: "Lena",
@@ -103,9 +131,13 @@ const peopleObject = {
             ]
         },
         {
-            name: "Anna",
+            name: "George",
             hasChildren: true,
             hasParent: true,
+            hasPartner: true,
+            partner: {
+                name: "Monika",
+            },
             children: [
                 {
                     name: "Sandy",
@@ -118,6 +150,10 @@ const peopleObject = {
             name: "Konstantin",
             hasChildren: true,
             hasParent: true,
+            hasPartner: true,
+            partner: {
+                name: "Marinet",
+            },
             children: [
                 {
                     name: "Emma",
@@ -130,14 +166,25 @@ const peopleObject = {
                     hasParent: true, 
                 },
                 {
-                    name: "Sofiya",
-                    hasChildren: false,
-                    hasParent: true, 
+                    name: "Marko",
+                    hasChildren: true,
+                    hasParent: true,
+                    hasPartner: true,
+                    partner: {
+                        name: "Sofiya",
+                    },
+                    children: [
+                        {
+                            name: "Bobby",
+                            hasChildren: false,
+                            hasParent: true,
+                        }
+                    ]
                 },
             ] 
         }
     ]
-}
+};
 
 
 function App() {

@@ -26,10 +26,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 /* PERSON */
-.person-container:first-child {
-    justify-content: flex-end;
-}
-
 .person-container {
     display: flex;
     width: 300px;
@@ -37,7 +33,20 @@ h1, h2, h3, h4, h5, h6, p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* padding-top: 400px; */
+}
+
+.person-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.person-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    margin: 0 50px;
 }
 
 .person {
@@ -61,6 +70,22 @@ h1, h2, h3, h4, h5, h6, p {
     outline-color: rgb(16, 172, 81);
 }
 
+.person.partner {
+    order: 1;
+    width: 200px;
+    height: 160px;
+}
+
+.person.partner:hover {
+    width: 220px;
+    height: 180px;    
+}
+
+
+.person-inner .person:not(.person-inner .person.partner) {
+    order: 2;
+}
+
 .person-icon {
     position: absolute;
     content: "";
@@ -79,11 +104,23 @@ h1, h2, h3, h4, h5, h6, p {
     background-position: 50% 50%;
 }
 
+.person.partner .person-icon {
+    width: 140px;
+    height: 140px;
+    left: 30px;
+    background-image: url('mother.jpg');
+}
+
 .person:hover .person-icon {
     width: 220px;
     height: 220px;
     transition: .4s;
     outline-color: rgb(16, 172, 81);
+}
+
+.person.partner:hover .person-icon {
+    width: 160px;
+    height: 160px;
 }
 
 .person-name-container {
