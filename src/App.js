@@ -1,6 +1,7 @@
+import React from 'react';
 import Branch from './Branch';
 
-const peopleObject = {
+const people = [{
     name: "Albert",
     hasChildren: true,
     hasParent: false,
@@ -191,13 +192,17 @@ const peopleObject = {
             ] 
         }
     ]
-};
+}];
 
 
 function App() {
 
     return (
-        <Branch branch={peopleObject}/>
+        <React.Fragment >
+            {people.map((peopleObject) =>(
+                <Branch branch={peopleObject}/>
+            ))}
+        </React.Fragment>
     );
 }
 

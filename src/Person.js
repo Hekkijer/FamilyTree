@@ -8,7 +8,7 @@ function Person(props) {
     return (
         <React.Fragment>
             {!person.hasPartner && <div className="person-container">
-                {person.hasParent && <div className="vertical-line has-parent"></div> }
+                {person.hasParent && <div className="vertical-line-has-parent"></div> }
                 <div className="person">
                     <div className="person-icon"></div>
                     <div className="person-name-container">
@@ -20,7 +20,6 @@ function Person(props) {
                 {person.hasChildren && <div className="vertical-line"></div> }
             </div>}
             {person.hasPartner && <div className="person-outer">
-                {person.hasParent && <div className="vertical-line has-parent"></div> }
                 <div className="person-inner">
                     <div className="person-container partner">
                         <div className="person partner">
@@ -33,6 +32,7 @@ function Person(props) {
                         </div>
                     </div>                  
                     <div className="person-container">
+                    {person.hasParent && <div className="vertical-line-has-parent"></div> }
                         <div className="person">
                             <div className="person-icon"></div>
                             <div className="person-name-container">

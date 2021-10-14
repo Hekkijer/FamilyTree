@@ -19,10 +19,10 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: center;
 }
 
-.banch-inner {
+/* .branch-inner {
     display: flex;
     flex-direction: column;
-}
+} */
 
 
 /* PERSON */
@@ -43,9 +43,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .person-inner {
     display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-    height: 300px;
+    align-items: flex-end;
     margin: 0 50px;
 }
 
@@ -81,10 +79,6 @@ h1, h2, h3, h4, h5, h6, p {
     height: 180px;    
 }
 
-
-.person-inner .person:not(.person-inner .person.partner) {
-    order: 2;
-}
 
 .person-icon {
     position: absolute;
@@ -145,8 +139,19 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: black;
 }
 
-.vertical-line.has-parent {
+.vertical-line-has-parent {
     height: 400px;
+    width: 10px;
+    background-color: black;
+}
+
+/* No vertical-line-has-parent for first and last child of .node-child.sibling*/
+.node-child-sibling:first-child > .branch-inner > .person-container > .vertical-line-has-parent,
+.node-child-sibling:last-child > .branch-inner > .person-container > .vertical-line-has-parent,
+.node-child-sibling:first-child > .branch-inner > .node-parent > .person-container > .vertical-line-has-parent,
+.node-child-sibling:last-child > .branch-inner > .node-parent > .person-container > .vertical-line-has-parent,
+.node-child-sibling:first-child > .branch-inner > .node-parent > .person-outer > .person-inner > .person-container > .vertical-line-has-parent,
+.node-child-sibling:last-child > .branch-inner > .node-parent > .person-outer > .person-inner > .person-container > .vertical-line-has-parent {
     background-color: transparent;
 }
 
@@ -172,17 +177,17 @@ h1, h2, h3, h4, h5, h6, p {
     height: 900px;
 }
 
-.node-child {
-    /* margin: 0 40px; */
+.node-child, .node-child-sibling {
     display: flex;
     height: 100%;
     align-items: flex-start;
     position: relative;
+    justify-content: center;
 }
 
-.node-child.sibling:not(:first-child):not(:last-child)::after {
+/* Horizontal line node-sibling */
+.node-child-sibling::before {
     position: absolute;
-    /* background-color: black; */
     content: "";
     height: 410px;
     width: 100%;
@@ -191,49 +196,19 @@ h1, h2, h3, h4, h5, h6, p {
     border-top: 10px solid #000;
 }
 
-.node-child:not(:first-child):not(:last-child)::before {
-    position: absolute;
-    content: "";
-    height: 410px;
-    top: -10px;
-    width: 50%;
-    border-left: 10.5px solid #000;
-    border-top: 10px solid #000;
-    right: -5.4px;
-}
-
-.node-child:not(.node-child.sibling)::before {
-    position: absolute;
-    content: "";
-    height: 410px;
-    top: -10px;
-    width: 50%;
-    border-left: 10px solid #000;
-    right: -5px;
-}
-
-.node-child.sibling:first-child::before {
-    position: absolute;
-    content: "";
-    height: 410px;
-    top: -10px;
+/* Curve line first-child node-child-sibling*/
+.node-child-sibling:first-child::before {
     width: 49.6%;
     border-left: 10px solid #000;
-    border-top: 10px solid #000;
     right: 0;
+    left: auto;
     border-top-left-radius: 30px;
 }
 
-
-.node-child.sibling:last-child::before {
-    position: absolute;
-    content: "";
+/* Curve line last-child  node-child-sibling*/
+.node-child-sibling:last-child::before {
     border-right: 10px solid #000;
-    border-top: 10px solid #000;
-    height: 410px;
-    top: -10px;
     width: 49.6%;
-    left: 0;
     border-top-right-radius: 30px;
 }
 

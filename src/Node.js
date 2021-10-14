@@ -13,7 +13,7 @@ function Node(props) {
             {node.hasChildren && <div className="node-children">
                 {// If many children
                 node.children.length > 1 && node.children.map((child) => (
-                    <div className="node-child sibling">
+                    <div className="node-child-sibling">
                         <Node node={child}/>
                     </div>
                 ))}
