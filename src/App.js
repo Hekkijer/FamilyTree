@@ -128,6 +128,18 @@ const people = [{
                                     ]
                                 },
                                 {
+                                    name: "John",
+                                    hasChildren: true,
+                                    hasParent: true,
+                                    children: [
+                                        {
+                                            name: "Sam",
+                                            hasChildren: false,
+                                            hasParent: true,
+                                        }
+                                    ]
+                                },
+                                {
                                     name: "Mary",
                                     hasChildren: false,
                                     hasParent: true,

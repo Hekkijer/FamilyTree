@@ -1,29 +1,31 @@
+import React from 'react';
 import Person from './Person';
 
 
 function Node(props) {
     const node = props.node;
+    let hasSibling = "";
+    if (props.hasSibling) hasSibling = "has-sibling";
 
     return (
-        <div className="branch-inner">
-            {node.hasChildren && <div className="node-parent">
+        <div className={`branch-inner ${hasSibling}`}>
+            {node.hasChildren && 
                 <Person person={node}/>
-            </div>}
+            }
             {!node.hasChildren && <Person person={node}/>}
-            {node.hasChildren && <div className="node-children">
+            {node.children && node.children.length > 1 && <div className="node-children">
                 {// If many children
-                node.children.length > 1 && node.children.map((child) => (
-                    <div className="node-child-sibling">
-                        <Node node={child}/>
-                    </div>
+                node.children.map((child) => (
+                    <Node node={child} hasSibling={true}/>
                 ))}
+            </div>}
+
+            {node.children && node.children.length === 1 && <React.Fragment>
                 {// If 1 child
-                node.children.length === 1 && node.children.map((child) => (
-                    <div className="node-child">
-                        <Node node={child}/>
-                    </div>
+                node.children.length === 1 && node.children.map((child) => (  
+                    <Node node={child}/>
                 ))}
-            </div> }
+            </React.Fragment>}
         </div>
     );
 }

@@ -19,17 +19,16 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: center;
 }
 
-/* .branch-inner {
-    display: flex;
-    flex-direction: column;
-} */
+.branch-inner {
+    position: relative;
+}
 
 
 /* PERSON */
 .person-container {
     display: flex;
     width: 300px;
-    height: 100%;
+    height: 200px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
@@ -39,12 +38,19 @@ h1, h2, h3, h4, h5, h6, p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 900px;
+}
+
+/* First node */
+.branch-outer > .branch-inner > .person-outer {
+    justify-content: flex-end;
 }
 
 .person-inner {
     display: flex;
     align-items: flex-end;
     margin: 0 50px;
+    height: 200px;
 }
 
 .person {
@@ -145,21 +151,37 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: black;
 }
 
-/* No vertical-line-has-parent for first and last child of .node-child.sibling*/
-.node-child-sibling:first-child > .branch-inner > .person-container > .vertical-line-has-parent,
-.node-child-sibling:last-child > .branch-inner > .person-container > .vertical-line-has-parent,
-.node-child-sibling:first-child > .branch-inner > .node-parent > .person-container > .vertical-line-has-parent,
-.node-child-sibling:last-child > .branch-inner > .node-parent > .person-container > .vertical-line-has-parent,
-.node-child-sibling:first-child > .branch-inner > .node-parent > .person-outer > .person-inner > .person-container > .vertical-line-has-parent,
-.node-child-sibling:last-child > .branch-inner > .node-parent > .person-outer > .person-inner > .person-container > .vertical-line-has-parent {
+/* No vertical-line-has-parent for first and last child of .branch-inner.has-sibling */
+.branch-inner.has-sibling:first-child > .person-outer > .vertical-line-has-parent,
+.branch-inner.has-sibling:last-child > .person-outer > .vertical-line-has-parent {
     background-color: transparent;
 }
 
-.horizontal-line {
-    height: 10px;
-    background-color: #000;
-    margin: 0 auto;
-    width: 70%;
+/* Horizontal line node-sibling */
+.branch-inner.has-sibling::before {
+    position: absolute;
+    content: "";
+    height: 410px;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    border-top: 10px solid #000;
+}
+
+/* Curve line first-child node-child-sibling*/
+.branch-inner.has-sibling:first-child::before {
+    width: 49.6%;
+    border-left: 10px solid #000;
+    right: 0;
+    left: auto;
+    border-top-left-radius: 30px;
+}
+
+/* Curve line last-child  node-child-sibling*/
+.branch-inner.has-sibling:last-child::before {
+    border-right: 10px solid #000;
+    width: 49.6%;
+    border-top-right-radius: 30px;
 }
 
 /* NODE */
@@ -175,41 +197,6 @@ h1, h2, h3, h4, h5, h6, p {
     justify-content: center;
     align-items: flex-start;
     height: 900px;
-}
-
-.node-child, .node-child-sibling {
-    display: flex;
-    height: 100%;
-    align-items: flex-start;
-    position: relative;
-    justify-content: center;
-}
-
-/* Horizontal line node-sibling */
-.node-child-sibling::before {
-    position: absolute;
-    content: "";
-    height: 410px;
-    width: 100%;
-    top: -10px;
-    left: 0;
-    border-top: 10px solid #000;
-}
-
-/* Curve line first-child node-child-sibling*/
-.node-child-sibling:first-child::before {
-    width: 49.6%;
-    border-left: 10px solid #000;
-    right: 0;
-    left: auto;
-    border-top-left-radius: 30px;
-}
-
-/* Curve line last-child  node-child-sibling*/
-.node-child-sibling:last-child::before {
-    border-right: 10px solid #000;
-    width: 49.6%;
-    border-top-right-radius: 30px;
 }
 
 
