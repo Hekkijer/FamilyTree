@@ -1,5 +1,6 @@
 import React from 'react';
 import Branch from './Branch';
+import { PanZoom } from 'react-easy-panzoom';
 
 const people = [{
     name: "Albert",
@@ -210,11 +211,11 @@ const people = [{
 function App() {
 
     return (
-        <React.Fragment >
+        <PanZoom zoomSpeed={3} autoCenter autoCenterZoomLevel={1}>
             {people.map((peopleObject) =>(
                 <Branch branch={peopleObject}/>
             ))}
-        </React.Fragment>
+        </PanZoom>
     );
 }
 
