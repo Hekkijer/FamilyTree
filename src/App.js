@@ -1,6 +1,6 @@
 import React from 'react';
 import Branch from './Branch';
-import { PanZoom } from 'react-easy-panzoom';
+import ScrollContainer from 'react-indiana-scroll';
 
 const people = [{
     name: "Albert",
@@ -211,11 +211,13 @@ const people = [{
 function App() {
 
     return (
-        <PanZoom zoomSpeed={3} autoCenter autoCenterZoomLevel={1}>
-            {people.map((peopleObject) =>(
-                <Branch branch={peopleObject}/>
-            ))}
-        </PanZoom>
+        <ScrollContainer className="screen-outer">
+            <div className="screen-inner">
+                {people.map((peopleObject) =>(
+                    <Branch branch={peopleObject}/>
+                ))}
+            </div>
+        </ScrollContainer>
     );
 }
 

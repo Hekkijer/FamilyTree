@@ -10,3 +10,10 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
+
+let screen = document.querySelector('.screen-outer')
+
+let branch = document.querySelector('.branch-outer')
+
+screen.scrollTo(28500, 31500)
+

@@ -1,6 +1,11 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     margin: 0;
-    box-sizing: border-box;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -11,6 +16,24 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 
+/* SCREEN */
+.screen-outer {
+    width: 100%;
+    height: 100vh;
+    /* background-color: #282828; */
+    /* width: 310px;
+    height: 310px; */
+ 
+}
+
+.screen-inner {
+    width: 65000px;
+    height: 65000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 100px solid black;
+}
 
 /* BRANCH */
 .branch-inner {
