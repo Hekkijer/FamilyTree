@@ -3,6 +3,10 @@ html, body {
     height: 100%;
 }
 
+/* *{
+    border: 1px solid red;
+} */
+
 body {
     margin: 0;
     padding: 0;
@@ -20,32 +24,38 @@ h1, h2, h3, h4, h5, h6, p {
 .screen-outer {
     width: 100%;
     height: 100vh;
-    /* background-color: #282828; */
-    /* width: 310px;
-    height: 310px; */
- 
+    background-color: rgb(43, 43, 43);
 }
 
 .screen-inner {
-    width: 65000px;
-    height: 65000px;
+    width: 100%;
+    padding: 10000px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 100px solid black;
 }
 
-/* BRANCH */
-.branch-inner {
+/* TREE & BRANCH */
+.tree-container {
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+
+.branch-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 
 /* PERSON */
-.person-container {
+.person-inner {
     display: flex;
-    width: 300px;
-    height: 200px;
+    width: 130px;
+    height: 110px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
@@ -55,165 +65,155 @@ h1, h2, h3, h4, h5, h6, p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 900px;
+    height: 355px;
+    margin: 0 15px;
 }
 
 /* First node */
-.branch-outer > .branch-inner > .person-outer {
+.tree-container > .branch-container > .person-outer {
     justify-content: flex-end;
 }
 
-.person-inner {
+.partners-container {
     display: flex;
     align-items: flex-end;
-    margin: 0 50px;
-    height: 200px;
 }
 
 .person {
     transition: .4s;
-    width: 240px;
-    height: 200px;
+    width: 110px;
+    height: 90px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 3px 3px  rgba(0,0,0,.15);
-    outline: 5px solid transparent;
-    outline-offset: 6px;
+    outline: 3px solid transparent;
+    outline-offset: 3px;
     position: relative;
     display: flex;
     align-items: flex-end;
 }
 
 .person:hover {
-    width: 260px;
-    height: 220px;
+    width: 130px;
+    height: 110px;
     transition: .4s;
     outline-color: rgb(16, 172, 81);
 }
 
 .person.partner {
-    order: 1;
-    width: 200px;
-    height: 160px;
+    width: 100px;
+    height: 80px;
 }
 
 .person.partner:hover {
-    width: 220px;
-    height: 180px;    
+    width: 120px;
+    height: 100px;    
 }
 
 
 .person-icon {
     position: absolute;
     content: "";
-    width: 200px;
-    height: 200px;
-    left: 20px;
-    bottom: 100px;
-    border-radius: 50px;
+    width: 90px;
+    height: 90px;
+    left: 10px;
+    bottom: 45px;
+    border-radius: 20px;
     background-color: #fff;
     box-shadow: 0px 0px 3px 3px  rgba(0,0,0,.15);
-    outline: 5px solid transparent;
-    outline-offset: 4px;
+    outline: 3px solid transparent;
+    outline-offset: 3px;
     transition: .4s;
     background-image: url('father.jpg');
     background-size: cover;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .person.partner .person-icon {
-    width: 140px;
-    height: 140px;
-    left: 30px;
+    width: 80px;
+    height: 80px;
+    left: 10px;
     background-image: url('mother.jpg');
-    background-size: contain;
 }
 
 .person:hover .person-icon {
-    width: 220px;
-    height: 220px;
+    width: 110px;
+    height: 110px;
     transition: .4s;
     outline-color: rgb(16, 172, 81);
 }
 
 .person.partner:hover .person-icon {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
 }
 
 .person-name-container {
     text-align: center;
-    padding: 30px 0;
     width: 100%;
-    height: 40px;
+    height: 35px;
 }
 
 .person-name {
     color: grey;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 15px;
 }
 
 /* Lines */
 .vertical-line {
-    width: 10px;
-    height: 300px;
+    width: 5px;
+    height: 100px;
     background-color: black;
 }
 
 .vertical-line-has-parent {
-    height: 400px;
-    width: 10px;
+    height: 145px;
+    width: 5px;
     background-color: black;
 }
 
-/* No vertical-line-has-parent for first and last child of .branch-inner.has-sibling */
-.branch-inner.has-sibling:first-child > .person-outer > .vertical-line-has-parent,
-.branch-inner.has-sibling:last-child > .person-outer > .vertical-line-has-parent {
+/* No .vertical-line-has-parent for first and last child of .branch-inner.has-sibling */
+.branch-container.has-sibling:first-child > .person-outer > .vertical-line-has-parent,
+.branch-container.has-sibling:last-child > .person-outer > .vertical-line-has-parent {
     background-color: transparent;
 }
 
 /* Horizontal line node-sibling */
-.branch-inner.has-sibling::before {
+.branch-container.has-sibling::before {
     position: absolute;
     content: "";
-    height: 410px;
+    height: 145px;
     width: 100%;
-    top: -10px;
+    top: -4px;
     left: 0;
-    border-top: 10px solid #000;
+    border-top: 5px solid #000;
 }
 
 /* Curve line first-child node-child-sibling*/
-.branch-inner.has-sibling:first-child::before {
+.branch-container.has-sibling:first-child::before {
     width: 49.6%;
-    border-left: 10px solid #000;
+    border-left: 5px solid #000;
     right: 0;
     left: auto;
-    border-top-left-radius: 30px;
+    border-top-left-radius: 20px;
 }
 
 /* Curve line last-child  node-child-sibling*/
-.branch-inner.has-sibling:last-child::before {
-    border-right: 10px solid #000;
+.branch-container.has-sibling:last-child::before {
+    border-right: 5px solid #000;
     width: 49.6%;
-    border-top-right-radius: 30px;
+    border-top-right-radius: 20px;
 }
 
 /* NODE */
-.node-parent {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 900px;
-}
-
 .node-children {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 900px;
+    min-height: 355px;
 }
 
 

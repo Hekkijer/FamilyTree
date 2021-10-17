@@ -4,9 +4,7 @@ function Branch(props) {
     const branch = props.branch;
 
     return (
-        <div className="branch-outer">
-            <Node node={branch}/>
-        </div>
+        <Node node={branch}/>
     );
 }
 

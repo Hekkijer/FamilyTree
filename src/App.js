@@ -2,6 +2,34 @@ import React from 'react';
 import Branch from './Branch';
 import ScrollContainer from 'react-indiana-scroll';
 
+
+
+
+
+
+function App() {
+
+    return (      
+        <ScrollContainer className="screen-outer">
+            <div className="screen-inner">
+                <div className="tree-container">
+                    {people.map((peopleObject) =>(
+                        <Branch branch={peopleObject}/>
+                    ))}
+                </div>
+            </div>
+        </ScrollContainer>
+
+        // <React.Fragment>
+        //     {people.map((person) => (
+        //         <Branch branch={person}/>
+        //     ))}
+        // </React.Fragment>
+    );
+}
+
+export default App;
+
 const people = [{
     name: "Albert",
     hasChildren: true,
@@ -206,19 +234,3 @@ const people = [{
         }
     ]
 }];
-
-
-function App() {
-
-    return (
-        <ScrollContainer className="screen-outer">
-            <div className="screen-inner">
-                {people.map((peopleObject) =>(
-                    <Branch branch={peopleObject}/>
-                ))}
-            </div>
-        </ScrollContainer>
-    );
-}
-
-export default App;

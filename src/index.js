@@ -12,8 +12,5 @@ ReactDOM.render(
 );
 
 let screen = document.querySelector('.screen-outer')
-
-let branch = document.querySelector('.branch-outer')
-
-screen.scrollTo(28500, 31500)
-
+// Screen to .screen-outer padding value
+screen.scrollTo(10000, 10000)
